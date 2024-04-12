@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head">
+    <meta charset="UTF-8">
+    <title>Tipo de Triángulo</title>
+</head>
+<body>
+<nav th:replace="layout::menu"></nav>
+<div class="card">
+    <div class="card-header text-bg-danger">
+        Determinación del Tipo de Triángulo
+    </div>
+    <div class="card-body">
+        <form th:action="@{/triangulo}" method="post" th:object="${trianguloModel}">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="txtLado1"
+                       placeholder="Lado 1" th:field="*{lado1}">
+                <label for="txtLado1">Ingrese la longitud del lado 1.</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="txtLado2"
+                       placeholder="Lado 2" th:field="*{lado2}">
+                <label for="txtLado2">Ingrese la longitud del lado 2.</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="txtLado3"
+                       placeholder="Lado 3" th:field="*{lado3}">
+                <label for="txtLado3">Ingrese la longitud del lado 3.</label>
+            </div>
+            <hr />
+            <button type="submit" class="btn btn-primary">DETERMINAR</button>
+            <div th:if="${mostrarTipo}" class="alert alert-info" role="alert">
+                <span th:text="${resultado} ?: ''"></span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
