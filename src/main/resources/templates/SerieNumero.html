@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layout::head">
+    <meta charset="UTF-8">
+    <title>Serie Numero</title>
+</head>
+<body>
+<nav th:replace="layout::menu"></nav>
+<div class="card">
+    <div class="card-header text-bg-danger">
+        Imprimir Serie Letra
+    </div>
+    <div class="card-body">
+        <form th:action="@{/serieNumero}" method="post" th:object="${SerieModel}">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="txtNumero"
+                       placeholder="numero" th:field="*{numero}">
+                <label for="txtNumero">Ingrese el Numero</label>
+            </div>
+
+            <hr />
+            <button type="submit" class="btn btn-primary">IMPRIMIR</button>
+            <div th:if="${mostrarSerie}" class="alert alert-info" role="alert">
+                <span th:text="${resultado} ?: ''"></span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
