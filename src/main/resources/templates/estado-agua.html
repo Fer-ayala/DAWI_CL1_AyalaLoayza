@@ -20,6 +20,7 @@
             <hr />
             <button type="submit" class="btn btn-primary">DETERMINAR</button>
             <div th:if="${mostrarEstado}" class="alert alert-info" role="alert">
+                <br />
                 <span th:text="${resultado} ?: ''"></span>
             </div>
         </form>
